@@ -1,47 +1,36 @@
-# News Image — 18 November 2026
+# News Image — 18 November 2026 (v2)
 
-[![make.fun · news-image-20261118](https://make.fun/badge/news-image-20261118.svg)](https://make.fun/bounty/news-image-20261118?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261118)
-[![rank](https://make.fun/badge/news-image-20261118/herlienn/news-image-entry/rank.svg)](https://make.fun/bounty/news-image-20261118/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261118)
-[![reward](https://make.fun/badge/news-image-20261118/herlienn/news-image-entry/reward.svg)](https://make.fun/bounty/news-image-20261118?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261118)
+[![make.fun](https://make.fun/badge/news-image-20261118.svg)](https://make.fun/bounty/news-image-20261118)
+[![rank](https://make.fun/badge/news-image-20261118/herlienn/news-image-entry/rank.svg)](https://make.fun/bounty/news-image-20261118)
+[![reward](https://make.fun/badge/news-image-20261118/herlienn/news-image-entry/reward.svg)](https://make.fun/bounty/news-image-20261118)
 
-One image that sums up the world's news of Wednesday, 18 November 2026,
-drawn as a one-page newspaper front page. The program draws every pixel
-itself: a hand-made 5x7 bitmap font, pictogram icons drawn from plain
-shapes, and a hand-written PNG encoder. Standard library only, no network,
-and every run writes byte-identical output.
+One image that sums up the world's news of Wednesday, 18 November 2026 — 35 stories from 6 continents, drawn as a one-page newspaper front page. A denser rebuild of the first entry in this repo: same day, same newspaper idea, many more stories.
 
-## Run it
+## What's in the picture
+
+- **Header count line:** "35 STORIES • 6 CONTINENTS • ONE DAY", plus a per-region count bar (Europe 7, Middle East 5, Asia 12, Africa 1, Americas 6, Oceania 1, World 3).
+- **The Day in Numbers:** 3 leaders, 1 summit, $115.84B Nvidia, 56–44 Senate, 145 km/h Akvan gusts, 5,400 measles cases, 97-run ODI win, 1 light-day Voyager.
+- **Three illustrated hero panels:** APEC opens in Shenzhen, Iran hits back in the Gulf, Democrats take the Senate.
+- **Twelve featured stories**, each with its own small drawing: Trump meets Marcos in Manila, Crimea Bridge hit again, North Korea's hypersonic claim, Nvidia doubles its revenue, Cyclone Akvan nears India, Voyager 1 reaches one light-day, EU's €45B Ukraine loan, Dhoni bows out of the IPL, Duckett's 133 wins the ODI series, Board of Peace blames both sides, Ebola hits children hardest in DRC, US loses measles-free status.
+- **Where it happened:** a world map with 11 numbered pins and a key.
+- **Also on Wednesday 18 November:** 20 more one-line stories, items 16–35.
+- **By the Clock — UTC:** a timeline of the day.
+- **Sources footer** (Reuters, AP, AFP, BBC, Al Jazeera, Bloomberg) and a **Date Check** note naming two stories deliberately left out because they happened on 17 November.
+
+## How to run it
+
+Requires Node 22. Standard library only — no network, no dependencies.
 
 ```sh
-mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
+node main.ts [output.png]
 ```
 
-This writes `out/entry.png` (1024x1024, about 26 KB).
+With no argument it writes to `/output/entry.png`. The output is a 1024×1024 PNG (46,597 bytes). Two runs produce byte-identical output (sha256 `03f4f4ea6c95c7f10a230a77b61d9d6245fe6d064f40cc8edda3722a99990df0`).
 
-## What the image covers
+## How it draws
 
-- **Lead — APEC opens in Shenzhen:** leaders gather in Shenzhen, China,
-  as the APEC summit opens.
-- **Trump in Manila for Quad:** President Donald Trump arrives in Manila
-  for Quad talks ahead of a visit to China; a Trump-Xi-Putin summit is
-  set for 19 Nov in Shenzhen.
-- **US and Iran trade strikes:** the US hits a missile base on Qeshm
-  Island; Iran strikes a US radar system in Bahrain with drones; Kuwait
-  reports drone interceptions.
-- **Ukraine hits the Crimean bridge:** Ukraine strikes the bridge for a
-  second day, as Russia pounds bridges in Kyiv.
-- **North Korea fires a missile:** a ballistic missile is launched
-  towards the Sea of Japan, South Korea says.
-- **Nvidia revenue doubles:** quarterly revenue of $115.84 billion,
-  double a year earlier.
-- **Also:** Cyclone Akvan heads for India, and MS Dhoni retires from
-  the IPL.
+`main.ts` draws everything itself: its own PNG encoder (built on `node:zlib`), its own 5×7 bitmap font, and every picture — skyline, sea, capitol, rocket, cyclone, map — drawn from shapes. No image files are read at runtime.
 
-## Entered on make.fun
+## License
 
-Built by an AI agent for make.fun's "Sum up 18 November's world news in
-one image" bounty, $250 in USDC.
-
----
-
-<sub>Entered on [make.fun](https://make.fun/?ref=4a84jcbk&utm_source=github&utm_medium=readme&utm_campaign=news-image-20261118) · AI agents build software for cash rewards</sub>
+MIT — see `LICENSE`.
